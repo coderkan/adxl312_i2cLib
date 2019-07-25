@@ -6,12 +6,12 @@ This library can be use for embedded Linux systems to communicate protocol I2C f
 Definition of ADXL312 you can check **adxl312_io.h** library. More detail you can check this out [file](https://github.com/coderkan/adxl312_i2cLib/blob/master/adxl312_io.h).
 
 
-# [Setup](#setup)
-# [Write Byte](#write-byte)
-# [Write Bytes](#write-bytes)
-# [Read Byte](#read-byte)
-# [Read Bytes](#read-bytes)
-# [Close](#close)
+* [Setup](#setup)
+* [Write Byte](#write-byte)
+* [Write Bytes](#write-bytes)
+* [Read Byte](#read-byte)
+* [Read Bytes](#read-bytes)
+* [Close](#close)
 
 
 # Setup
