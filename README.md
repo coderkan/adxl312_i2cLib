@@ -14,7 +14,7 @@ Definition of ADXL312 you can check **adxl312_io.h** library. More detail you ca
 * [Close](#close)
 
 
-# Setup
+## Setup
 
 Init I2C setup. Pass `i2cdevice` and `addr`. Return file address if write correctly else return -1.
 
@@ -33,7 +33,7 @@ int i2c_init(char *i2cdevice,int addr){
 }
 ```
 
-# Write Byte
+## Write Byte
 
 Write a byte to given address and file. `file` is a value that is returned `i2c_init` function. `value` is a value you want to write. Return 1 if write correctly else return -1.
 
@@ -50,7 +50,7 @@ int i2c_writeByte(int file,int addr,int value){
 }
 ```
 
-# Write Bytes
+## Write Bytes
 
 Write more than one byte to given file. `file` is a value that returned `i2c_init` function and `value` is a byte array you want to send and `nbytes` is a array length. Return 1 if write correctly else return -1.
 ```C
@@ -68,7 +68,7 @@ int i2c_writeBytes(int file,int addr,char value[10],int nbytes){
 }
 ```
 
-# Read Byte
+## Read Byte
 
 Read a byte from given file. `file` is a value that returned `i2c_init` function and `addr` is a address you want to read.  Return value is a byte readed value from address if read byte is correct else return -1.
 
@@ -118,7 +118,7 @@ int i2c_readByte(int file,int addr1,int addr2){
 }
 ```
 
-# Read Bytes
+## Read Bytes
 
 Read given byte size from file. `file` is a value that returned `i2c_init` function and `addr` is a address you want to read. `nbytes` is size of array. Return `nbytes` array pointer if read bytes is correct else return `NULL`  .
 
@@ -142,7 +142,7 @@ char *i2c_readBytes(int file,int addr,int nbytes){
 }
 ```
 
-# Close
+## Close
 
 Close opened file function.
 
