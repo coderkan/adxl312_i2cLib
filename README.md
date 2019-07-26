@@ -1,10 +1,8 @@
 # adxl312_i2cLib
 
-This library can be use for embedded Linux systems to communicate protocol I2C for [ADXL312](http://www.analog.com/media/en/technical-documentation/data-sheets/ADXL312.pdf) Digital Accelerometer. 
+This Library can be used to communicate with the I2C protocol for the [ADXL312](http://www.analog.com/media/en/technical-documentation/data-sheets/ADXL312.pdf) Digital Accelerometer in Embedded Linux Systems.
 
-
-Definition of ADXL312 you can check **adxl312_io.h** library. More detail you can check this out [file](https://github.com/coderkan/adxl312_i2cLib/blob/master/adxl312_io.h).
-
+You can find detailed definitions of ADXL312 in the[adxl312_io.h] (https://github.com/coderkan/adxl312_i2cLib/blob/master/adxl312_io.h)library. 
 
 * [Setup](#setup)
 * [Write Byte](#write-byte)
@@ -16,7 +14,7 @@ Definition of ADXL312 you can check **adxl312_io.h** library. More detail you ca
 
 ## Setup
 
-Init I2C setup. Pass `i2cdevice` and `addr`. Return file address if write correctly else return -1.
+`i2c_init` function takes 2 parameters. They are `\*i2cdevice` and `addr`. This function open device and talk with i2c slave. If connection has any error return -1. If connection is Ok than return opened file data.
 
 ```C
 int i2c_init(char *i2cdevice,int addr){
@@ -35,7 +33,7 @@ int i2c_init(char *i2cdevice,int addr){
 
 ## Write Byte
 
-Write a byte to given address and file. `file` is a value that is returned `i2c_init` function. `value` is a value you want to write. Return 1 if write correctly else return -1.
+`i2c_writeByte` function takes 3 parameters. They are `file`,`addr` and `value`. `file` is opened device and `addr` is the address to be written and `value` is the value to send. This function returns 1 if write correctly else return -1.
 
 ```C
 int i2c_writeByte(int file,int addr,int value){
@@ -52,7 +50,8 @@ int i2c_writeByte(int file,int addr,int value){
 
 ## Write Bytes
 
-Write more than one byte to given file. `file` is a value that returned `i2c_init` function and `value` is a byte array you want to send and `nbytes` is a array length. Return 1 if write correctly else return -1.
+`i2c_writeBytes` function takes 4 parameters. They are `file`,`addr`, `value[]` and `nbytes`. `file` is opened device and `addr` is the address to be written, `value[]` is the array values to send and `nbytes` shows how many bytes are written. This function returns 1 if write correctly else return -1.
+
 ```C
 int i2c_writeBytes(int file,int addr,char value[10],int nbytes){
 	int i;
@@ -70,7 +69,8 @@ int i2c_writeBytes(int file,int addr,char value[10],int nbytes){
 
 ## Read Byte
 
-Read a byte from given file. `file` is a value that returned `i2c_init` function and `addr` is a address you want to read.  Return value is a byte readed value from address if read byte is correct else return -1.
+`i2c_readByte` function takes 2 parameters and its returning type is a `char`. `file` is opened device and `addr` is a address to be read. This function returns the byte value read from the address if read is successful, otherwise returns -1.
+
 
 ```C
 char i2c_readByte(int file,int addr){
@@ -89,7 +89,7 @@ char i2c_readByte(int file,int addr){
 }
 ```
 
-Read 2 byte from given file. `file` is a value that returned `i2c_init` function and `addr1` and `addr2` is a address you want to read. Return value 16 bit readed value from address if read byte is correct else return -1.
+This function takes 4 parameters. It reads more than one address from device. This function freturns 16 bit byte value read from the address if read is successful, otherwise return -1.
 
 ```C
 int i2c_readByte(int file,int addr1,int addr2){
@@ -120,7 +120,7 @@ int i2c_readByte(int file,int addr1,int addr2){
 
 ## Read Bytes
 
-Read given byte size from file. `file` is a value that returned `i2c_init` function and `addr` is a address you want to read. `nbytes` is size of array. Return `nbytes` array pointer if read bytes is correct else return `NULL`  .
+`*i2c_readBytes` function takes 3 parameters and its returning type is a `char*`. `file` is opened device, `addr` is a address to be read and `nbytes`shows how many bytes are read. This function returns the byte array value read from the address if read is successful, otherwise returns `NULL`.
 
 ```C
 char *i2c_readBytes(int file,int addr,int nbytes){
