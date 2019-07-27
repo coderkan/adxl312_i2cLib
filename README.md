@@ -2,7 +2,7 @@
 
 This Library can be used to communicate with the I2C protocol for the [ADXL312](http://www.analog.com/media/en/technical-documentation/data-sheets/ADXL312.pdf) Digital Accelerometer in Embedded Linux Systems.
 
-You can find detailed definitions of ADXL312 in the [adxl312_io.h] (https://github.com/coderkan/adxl312_i2cLib/blob/master/adxl312_io.h) library. 
+You can find detailed definitions of ADXL312 in the [adxl312_io.h](https://github.com/coderkan/adxl312_i2cLib/blob/master/adxl312_io.h) library. 
 
 * [Setup](#setup)
 * [Write Byte](#write-byte)
